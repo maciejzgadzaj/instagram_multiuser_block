@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * The module file for instagram_multiuser_block module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function instagram_multiuser_block_theme() {
+  return array(
+    'instagram_multiuser_block_image' => array(
+      'variables' => [
+        'data' => NULL,
+        'height' => NULL,
+        'width' => NULL,
+        'src' => NULL,
+        'href' => NULL,
+      ],
+      'template' => 'instagram-multiuser-block-image',
+    ),
+  );
+}

@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Default theme implementation of an Instagram image link.
+ *
+ * Available variables:
+ * - data: The entire data array returned from the Instagram API request.
+ * - href: The url to the Instagram post page.
+ * - src: The source url to the instagram image.
+ * - width: The display width of the image.
+ * - height: The display height of the image.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set classes = [
+  'instagram-image',
+  data.id ? 'instagram-image--id-' ~ data.id,
+  data.caption.from.username ? 'instagram-image--user-' ~ data.caption.from.username,
+]
+%}
+{% spaceless %}
+  <div{{ attributes.addClass(classes) }}>
+    <a class="group" target="_blank" data-instagram-rel="1" href="{{ href }}" title="{{ data.caption.text }} - by {{ data.caption.from.username }}">
+      <img alt="{{ data.caption.text }}" title="{{ data.caption.text }} - by {{ data.caption.from.username }}" height="{{ height }}px" width="{{ width }}px" src="{{ src }}">
+    </a>
+  </div>
+{% endspaceless %}
